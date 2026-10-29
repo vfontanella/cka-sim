@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>CKA Exam Simulator</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="vendor/xterm.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header id="topbar">
+  <div class="brand">CKA <span>Exam Simulator</span></div>
+  <div id="exam-info" class="hidden">
+    <span id="exam-title"></span>
+    <span id="timer" title="Time remaining">--:--:--</span>
+    <button id="btn-notes" class="ghost">Notepad</button>
+    <button id="btn-finish" class="danger">End exam</button>
+  </div>
+</header>
+
+<main id="home">
+  <section class="card" id="cluster-card">
+    <h2>Kubernetes cluster <small id="cluster-profile"></small></h2>
+    <div id="cluster-status" class="status">checking…</div>
+    <div id="cluster-nodes" class="mono small"></div>
+    <div class="row">
+      <button id="c-start">Start cluster</button>
+      <button id="c-stop" class="ghost">Stop</button>
+      <button id="c-delete" class="ghost">Delete</button>
+    </div>
+    <pre id="cluster-log" class="log hidden"></pre>
+  </section>
+
+  <section>
+    <h2>Choose a scenario</h2>
+    <div id="scenario-errors" class="error"></div>
+    <div id="scenarios" class="grid"></div>
+  </section>
+</main>
+
+<main id="exam" class="hidden">
+  <aside id="left">
+    <nav id="task-nav"></nav>
+    <div id="task-view"></div>
+  </aside>
+  <div id="divider"></div>
+  <section id="right">
+    <div id="terminal-head">Terminal
+      <button id="btn-clear" class="ghost small">clear</button></div>
+    <div id="terminal"></div>
+  </section>
+</main>
+
+<main id="result" class="hidden"></main>
+
+<div id="notes" class="hidden">
+  <div class="notes-head">Notepad <button id="notes-close" class="ghost small">×</button></div>
+  <textarea id="notes-text" placeholder="Your notes (kept in this browser)"></textarea>
+</div>
+
+<div id="overlay" class="hidden"><div id="overlay-box"></div></div>
+<script src="vendor/xterm.js"></script>
+<script src="vendor/addon-fit.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
